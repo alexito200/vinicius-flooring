@@ -1,0 +1,44 @@
+/* === RESET STYLES === */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: system-ui, sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Remove Vite-specific styling */
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Remove .logo spin effects */
+.logo,
+.logo.react,
+.card,
+.read-the-docs {
+  all: unset;
+}
+
+/* Typography defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+/* Bootstrap will handle layout, spacing, and responsiveness */
