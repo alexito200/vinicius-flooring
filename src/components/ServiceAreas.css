@@ -1,0 +1,32 @@
+.service-areas-section {
+    background-color: #f9f9f9;
+  }
+  
+  .service-areas-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #5B3A29;
+  }
+  
+  .location-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .location-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  .location-list .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #A97453;
+  }
+  
