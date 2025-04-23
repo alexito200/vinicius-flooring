@@ -1,0 +1,64 @@
+.pricing-section {
+    background-color: #fffefc;
+  }
+  
+  .pricing-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #5B3A29;
+  }
+  
+  .pricing-card {
+    background: #ffffff;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    height: 100%;
+    position: relative;
+  }
+  
+  .plan-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #5B3A29;
+    margin-bottom: 0.5rem;
+  }
+  
+  .plan-price {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 1rem;
+  }
+  
+  .plan-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+  }
+  
+  .plan-features li {
+    padding: 0.25rem 0;
+    color: #333;
+  }
+  
+  .plan-button {
+    width: 100%;
+  }
+  
+  .popular {
+    border: 2px solid #A3B18A;
+    background-color: #f7fef9;
+  }
+  
+  .popular .badge {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background-color: #A3B18A;
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+  

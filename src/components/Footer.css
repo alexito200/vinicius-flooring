@@ -1,0 +1,75 @@
+.site-footer {
+    background-color: #F3EDE3;
+    color: #5B3A29;
+    font-size: 0.95rem;
+  }
+  
+  .footer-logo {
+    width: 40px;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+  
+  .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .tagline {
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    color: #7A5E4A;
+  }
+  
+  .footer-heading {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links a {
+    text-decoration: none;
+    color: #5B3A29;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-contact .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #A97453;
+  }
+  
+  .location-note {
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: #6f4e3d;
+  }
+  
+  hr {
+    border-top: 1px solid #ddd;
+  }
+  
+  .text-center {
+    color: #5B3A29;
+  }
+  
