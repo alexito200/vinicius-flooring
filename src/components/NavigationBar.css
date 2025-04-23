@@ -1,0 +1,32 @@
+.nav-link-custom {
+    color: #5B3A29 !important;
+    position: relative;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .nav-link-custom::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background-color: #A97453;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link-custom:hover::after {
+    width: 100%;
+  }
+  
+  .active-tab {
+    font-weight: 600;
+    color: #A97453 !important;
+  }
+  
+  .active-tab::after {
+    width: 100%;
+    background-color: #A97453;
+  }
+  

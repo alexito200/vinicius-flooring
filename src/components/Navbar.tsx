@@ -1,7 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import "./NavigationBar.css";
 
 function NavigationBar() {
+  const location = useLocation();
+
+  const isActive = (path: string) => location.pathname === path;
+
   return (
     <Navbar
       expand="lg"
@@ -27,34 +32,36 @@ function NavigationBar() {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center">
-            <Nav.Link as={Link} to="/" style={{ color: "#5B3A29" }}>
-              Home
-            </Nav.Link>
-            <Nav.Link as={Link} to="/services" style={{ color: "#5B3A29" }}>
-              Services
-            </Nav.Link>
-            <Nav.Link as={Link} to="/plans" style={{ color: "#5B3A29" }}>
-              Plans
-            </Nav.Link>
-            <Nav.Link as={Link} to="/contact" style={{ color: "#5B3A29" }}>
-              Contact
-            </Nav.Link>
+            {[
+              { path: "/", label: "Home" },
+              { path: "/services", label: "Services" },
+              { path: "/plans", label: "Plans" },
+              { path: "/contact", label: "Contact" },
+            ].map((item) => (
+              <Nav.Link
+                as={Link}
+                to={item.path}
+                key={item.path}
+                className={`nav-link-custom ${isActive(item.path) ? "active-tab" : ""}`}
+              >
+                {item.label}
+              </Nav.Link>
+            ))}
 
             <Button
-                variant="success"
-                className="ms-3"
-                style={{
-                  backgroundColor: "#A3B18A",
-                  border: "none",
-                  color: "#fff",
-                  fontWeight: "600",
-                }}
+              variant="success"
+              className="ms-3"
+              style={{
+                backgroundColor: "#A3B18A",
+                border: "none",
+                color: "#fff",
+                fontWeight: "600",
+              }}
             >
-                <Link to="/contact" style={{ color: "#fff", textDecoration: "none" }}>
-                    Get a Quote
-                </Link>
+              <Link to="/contact" style={{ color: "#fff", textDecoration: "none" }}>
+                Get a Quote
+              </Link>
             </Button>
-
           </Nav>
         </Navbar.Collapse>
       </Container>
