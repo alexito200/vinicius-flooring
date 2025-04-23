@@ -7,7 +7,7 @@ function HeroSection() {
     <div className="hero-section">
       <div className="hero-overlay">
         <Container className="d-flex flex-column justify-content-center h-100 text-start">
-          <h1 className="hero-heading">Welcome to Vinicius Flooring</h1>
+          <h1 className="hero-heading">Timeless Flooring, Honest Craftmanship</h1>
           <Link to="/contact" className="cta-link">
             Get a Quote
           </Link>

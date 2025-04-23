@@ -1,0 +1,29 @@
+.services-section {
+    background-color: #fdf9f3; /* light cream tone */
+  }
+  
+  .services-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #5B3A29;
+  }
+  
+  .service-icon {
+    width: 60px;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: #5B3A29;
+    margin-bottom: 0.5rem;
+  }
+  
+  .service-desc {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+  }
+  
