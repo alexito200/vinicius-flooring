@@ -1,4 +1,4 @@
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import './Hero.css';
 import { Link } from 'react-router-dom';
 
@@ -12,9 +12,21 @@ function HeroSection() {
           <span>Honest Craftsmanship</span>
         </h1>
 
-          <Link to="/contact" className="cta-link">
-            Get a Quote
-          </Link>
+            <Button
+              variant="success"
+              className="ms-3"
+              style={{
+                backgroundColor: "#A3B18A",
+                border: "none",
+                color: "#fff",
+                fontWeight: "600",
+                maxWidth: "200px",
+              }}
+            >
+              <Link to="/contact" style={{ color: "#fff", textDecoration: "none" }}>
+                Get a Quote
+              </Link>
+            </Button>
 
         </Container>
       </div>
