@@ -9,9 +9,9 @@ function Services() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const galleryImages = [
-    '/hero image.png',
-    '/hero image.png',
-    '/hero image.png'
+    '/hardwood-kitchen.png',
+    '/tile-bathroom.png',
+    '/epoxy-garage.png'
   ];
 
   const handleImageClick = (index: number) => {
