@@ -1,5 +1,6 @@
 import { Row, Col, Card } from 'react-bootstrap';
-import { ShieldCheck, People, ChatDots, Bucket } from 'react-bootstrap-icons';
+import { ShieldCheck, People, ChatDots } from 'react-bootstrap-icons';
+import { SparklesIcon } from '@heroicons/react/24/solid';
 
 function Why() {
   return (
@@ -37,7 +38,7 @@ function Why() {
           <Card className="bg-transparent text-light border-0">
             <Card.Body>
               <div className="mb-2">
-                <Bucket className="text-success" size={24} />
+                <SparklesIcon className="text-success" style={{ width: "24px", height: "24px"}} />
               </div>
               <Card.Title className="fs-6 text-dark">Clean Worksites</Card.Title>
               <Card.Text className="text-dark small">Respectful, tidy crews</Card.Text>
