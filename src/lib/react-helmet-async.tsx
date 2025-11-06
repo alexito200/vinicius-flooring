@@ -1,0 +1,98 @@
+import { Children, isValidElement, ReactElement, ReactNode, useEffect } from 'react';
+
+type HelmetProviderProps = {
+  children: ReactNode;
+};
+
+type HelmetProps = {
+  children?: ReactNode;
+};
+
+const HELMET_ATTRIBUTE = 'data-helmet-managed';
+
+function toTextContent(content: ReactNode): string {
+  if (typeof content === 'string') {
+    return content;
+  }
+
+  if (Array.isArray(content)) {
+    return content.map((item) => (typeof item === 'string' ? item : '')).join('');
+  }
+
+  return '';
+}
+
+export function HelmetProvider({ children }: HelmetProviderProps) {
+  return <>{children}</>;
+}
+
+export function Helmet({ children }: HelmetProps) {
+  useEffect(() => {
+    const createdNodes: HTMLElement[] = [];
+    const previousTitle = document.title;
+
+    Children.forEach(children, (child) => {
+      if (!isValidElement(child)) {
+        return;
+      }
+
+      const element = child as ReactElement<any, any>;
+      const elementType = typeof element.type === 'string' ? element.type : null;
+
+      if (!elementType) {
+        return;
+      }
+
+      if (elementType === 'title') {
+        const text = toTextContent(element.props.children);
+        if (text) {
+          document.title = text;
+        }
+        return;
+      }
+
+      const domNode = document.createElement(elementType);
+      domNode.setAttribute(HELMET_ATTRIBUTE, 'true');
+
+      const props = element.props as Record<string, unknown>;
+
+      Object.entries(props).forEach(([propKey, propValue]) => {
+        if (propKey === 'children' || propKey === 'dangerouslySetInnerHTML') {
+          return;
+        }
+
+        if (propValue === undefined || propValue === null) {
+          return;
+        }
+
+        domNode.setAttribute(propKey, String(propValue));
+      });
+
+      if (elementType === 'script') {
+        const innerHTML = (props.dangerouslySetInnerHTML as { __html?: string } | undefined)?.__html;
+        if (innerHTML) {
+          domNode.textContent = innerHTML;
+        } else {
+          domNode.textContent = toTextContent(element.props.children);
+        }
+      }
+
+      document.head.appendChild(domNode);
+      createdNodes.push(domNode);
+    });
+
+    return () => {
+      createdNodes.forEach((node) => {
+        if (node.parentNode) {
+          node.parentNode.removeChild(node);
+        }
+      });
+
+      document.title = previousTitle;
+    };
+  }, [children]);
+
+  return null;
+}
+
+export default Helmet;

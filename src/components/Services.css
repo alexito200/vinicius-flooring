@@ -8,10 +8,17 @@
     color: #5B3A29;
   }
   
-  .service-icon {
-    width: 60px;
-    height: auto;
+.service-icon {
+    width: 96px;
+    height: 96px;
+    background-color: #ffffff;
+    border: 2px solid #4F6F52;
     margin-bottom: 1rem;
+  }
+
+.service-icon svg {
+    width: 48px;
+    height: 48px;
   }
   
   .service-title {

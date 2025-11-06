@@ -1,11 +1,15 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import './PricingSection.css';
+import ButtonLink from './ButtonLink';
 
 function PricingSection() {
   return (
     <section className="pricing-section py-5">
       <Container>
-        <h2 className="text-center pricing-heading mb-5">Our Pricing Plans</h2>
+        <h2 className="text-center pricing-heading mb-3">Our Pricing Plans</h2>
+        <p className="text-center text-muted mb-5">
+          Transparent pricing for hardwood, tile, and epoxy flooring projects across Edison, New Brunswick, and Central Jersey.
+        </p>
         <Row className="g-4">
           {/* Budget Plan */}
           <Col md={4}>
@@ -18,7 +22,9 @@ function PricingSection() {
                 <li>No disposal or trim work</li>
                 <li>Basic layout</li>
               </ul>
-              <Button variant="outline-success" className="plan-button">Request Quote</Button>
+              <Button as={ButtonLink} to="/contact" variant="outline-success" className="plan-button">
+                Request Quote
+              </Button>
             </div>
           </Col>
 
@@ -34,7 +40,9 @@ function PricingSection() {
                 <li>Trim finishing</li>
                 <li>1-year warranty</li>
               </ul>
-              <Button variant="success" className="plan-button">Request Quote</Button>
+              <Button as={ButtonLink} to="/contact" variant="success" className="plan-button">
+                Request Quote
+              </Button>
             </div>
           </Col>
 
@@ -49,7 +57,9 @@ function PricingSection() {
                 <li>Furniture moving</li>
                 <li>5-year warranty</li>
               </ul>
-              <Button variant="outline-success" className="plan-button">Schedule Consultation</Button>
+              <Button as={ButtonLink} to="/contact" variant="outline-success" className="plan-button">
+                Schedule Consultation
+              </Button>
             </div>
           </Col>
         </Row>
