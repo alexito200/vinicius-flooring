@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Modal, Carousel, Button } from 'react-bootstrap';
+import { Container, Row, Col, Modal, Carousel, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import ContactSection from '../components/ContactSection';
 import Flooring from '../components/Flooring';
@@ -31,11 +31,6 @@ const galleryImages = [
 function Services() {
   const [showModal, setShowModal] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleImageClick = (index: number) => {
-    setActiveIndex(index);
-    setShowModal(true);
-  };
 
   return (
     <main>
