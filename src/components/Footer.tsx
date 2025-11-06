@@ -1,18 +1,59 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/solid';
+import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/solid';
+import { Helmet } from 'react-helmet-async';
 import './Footer.css';
+import {
+  BUSINESS_ADDRESS,
+  BUSINESS_EMAIL,
+  BUSINESS_NAME,
+  BUSINESS_PHONE,
+  BUSINESS_DESCRIPTION,
+  SERVICE_AREAS,
+  SITE_URL,
+} from '../seo/siteMetadata';
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: BUSINESS_NAME,
+  description: BUSINESS_DESCRIPTION,
+  url: SITE_URL,
+  telephone: BUSINESS_PHONE,
+  email: BUSINESS_EMAIL,
+  image: `${SITE_URL}/favicon.png`,
+  areaServed: SERVICE_AREAS.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: BUSINESS_ADDRESS.streetAddress,
+    addressLocality: BUSINESS_ADDRESS.addressLocality,
+    addressRegion: BUSINESS_ADDRESS.addressRegion,
+    postalCode: BUSINESS_ADDRESS.postalCode,
+    addressCountry: BUSINESS_ADDRESS.addressCountry,
+  },
+  sameAs: ['https://maps.app.goo.gl/viniciusFlooring'],
+};
 
 function Footer() {
   return (
     <footer className="site-footer py-5">
+      <Helmet>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      </Helmet>
       <Container>
         <Row>
           {/* Logo & Tagline */}
           <Col md={4} className="mb-4 mb-md-0">
             <div className="footer-brand">
-              <img src="/favicon_64x64.png" alt="Vinicius Flooring" className="footer-logo" />
-              <h5 className="brand-name">Vinicius Flooring</h5>
+              <img
+                src="/favicon_64x64.png"
+                alt="Vinicius Flooring monogram logo"
+                className="footer-logo"
+                loading="lazy"
+                width={64}
+                height={64}
+              />
+              <h5 className="brand-name">{BUSINESS_NAME}</h5>
               <p className="tagline">Timeless Flooring, Honest Craftsmanship</p>
             </div>
           </Col>
@@ -34,11 +75,15 @@ function Footer() {
             <div className="footer-contact">
               <div className="contact-item">
                 <PhoneIcon className="icon" />
-                <span>(908) 555-1234</span>
+                <a href={`tel:${BUSINESS_PHONE.replace(/[^0-9+]/g, '')}`}>{BUSINESS_PHONE}</a>
               </div>
               <div className="contact-item">
                 <EnvelopeIcon className="icon" />
-                <span>info@viniciusflooring.com</span>
+                <a href={`mailto:${BUSINESS_EMAIL}`}>{BUSINESS_EMAIL}</a>
+              </div>
+              <div className="contact-item">
+                <MapPinIcon className="icon" />
+                <span>{`${BUSINESS_ADDRESS.addressLocality}, ${BUSINESS_ADDRESS.addressRegion}`}</span>
               </div>
               <p className="location-note">Serving Central NJ and surrounding areas</p>
             </div>

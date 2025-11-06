@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { ElementType, useMemo, useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import './ContactSection.css';
 
-function ContactSection() {
+type ContactSectionProps = {
+  headingLevel?: 'h1' | 'h2' | 'h3';
+};
+
+function ContactSection({ headingLevel = 'h2' }: ContactSectionProps) {
   const [validated, setValidated] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  const HeadingTag = useMemo<ElementType>(() => headingLevel, [headingLevel]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -34,9 +40,11 @@ function ContactSection() {
   };
 
   return (
-    <section className="contact-section py-5">
+    <section className="contact-section py-5" aria-labelledby="contact-heading">
       <Container>
-        <h2 className="text-center contact-heading mb-5">Get in Touch</h2>
+        <HeadingTag id="contact-heading" className="text-center contact-heading mb-5">
+          Request Your Flooring Estimate in Central Jersey
+        </HeadingTag>
 
         <Row className="justify-content-center">
           <Col md={8}>
@@ -76,6 +84,18 @@ function ContactSection() {
                 <Form.Label>Leave this field empty</Form.Label>
                 <Form.Control name="_gotcha" />
               </Form.Group>
+
+              <Button
+                as="a"
+                href="https://maps.app.goo.gl/viniciusFlooring"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outline-success"
+                type="button"
+                className="w-100 mb-3"
+              >
+                View Our Google Business Listing
+              </Button>
 
               <Button variant="success" type="submit" className="w-100">
                 Send Message

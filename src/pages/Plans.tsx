@@ -1,15 +1,34 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import '../components/PricingSection.css';
 import { CheckCircle } from 'react-bootstrap-icons';
+import { Helmet } from 'react-helmet-async';
+import ButtonLink from '../components/ButtonLink';
+import { SITE_URL } from '../seo/siteMetadata';
 
 function PlansPage() {
   return (
-    <section className="pricing-section py-5">
-      <Container>
-        <h2 className="text-center pricing-heading mb-5">Flooring Plans</h2>
-        <p className="text-center text-muted mb-4">
-          Whether you're on a tight budget or looking for a high-end, custom experience, we offer a plan that fits your goals.
-        </p>
+    <main>
+      <Helmet>
+        <title>Flooring Service Plans for Central Jersey Homes | Vinicius Flooring</title>
+        <meta
+          name="description"
+          content="Compare hardwood, tile, and epoxy flooring service plans from Vinicius Flooring. Financing-friendly options for Edison, NJ homeowners and commercial spaces."
+        />
+        <link rel="canonical" href={`${SITE_URL}/plans`} />
+        <meta property="og:title" content="Flooring Service Plans for Central Jersey Homes" />
+        <meta
+          property="og:description"
+          content="Choose between budget, standard, and premium flooring plans tailored to Edison and Central Jersey projects."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${SITE_URL}/plans`} />
+      </Helmet>
+      <section className="pricing-section py-5">
+        <Container>
+          <h1 className="text-center pricing-heading mb-5">Flooring Plans</h1>
+          <p className="text-center text-muted mb-4">
+            Whether you're on a tight budget or looking for a high-end, custom experience, we offer a plan that fits your goals in Edison, New Brunswick, and the greater Central Jersey area.
+          </p>
 
         <Row className="g-4">
           {/* Budget Plan */}
@@ -23,7 +42,9 @@ function PlansPage() {
                 <li><CheckCircle className="text-success me-2" /> No disposal or trim work</li>
                 <li><CheckCircle className="text-success me-2" /> Basic layout</li>
               </ul>
-              <Button variant="outline-success" className="plan-button">Request Quote</Button>
+              <Button as={ButtonLink} to="/contact" variant="outline-success" className="plan-button">
+                Request Quote
+              </Button>
             </div>
           </Col>
 
@@ -39,7 +60,9 @@ function PlansPage() {
                 <li><CheckCircle className="text-success me-2" /> Trim finishing</li>
                 <li><CheckCircle className="text-success me-2" /> 1-year warranty</li>
               </ul>
-              <Button variant="success" className="plan-button">Request Quote</Button>
+              <Button as={ButtonLink} to="/contact" variant="success" className="plan-button">
+                Request Quote
+              </Button>
             </div>
           </Col>
 
@@ -54,7 +77,9 @@ function PlansPage() {
                 <li><CheckCircle className="text-success me-2" /> Furniture moving</li>
                 <li><CheckCircle className="text-success me-2" /> 5-year warranty</li>
               </ul>
-              <Button variant="outline-success" className="plan-button">Schedule Consultation</Button>
+              <Button as={ButtonLink} to="/contact" variant="outline-success" className="plan-button">
+                Schedule Consultation
+              </Button>
             </div>
           </Col>
         </Row>
@@ -62,11 +87,14 @@ function PlansPage() {
         <Row className="text-center mt-5">
           <Col>
             <h5 className="text-muted">Need help deciding?</h5>
-            <Button variant="outline-dark" href="/contact">Speak with a Flooring Specialist</Button>
+            <Button as={ButtonLink} to="/contact" variant="outline-dark">
+              Speak with a Flooring Specialist
+            </Button>
           </Col>
         </Row>
-      </Container>
-    </section>
+        </Container>
+      </section>
+    </main>
   );
 }
 

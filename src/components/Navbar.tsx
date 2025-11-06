@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import "./NavigationBar.css";
+import ButtonLink from "./ButtonLink";
 
 function NavigationBar() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function NavigationBar() {
             alt="Vinicius Flooring Logo"
             width="64"
             height="64"
+            loading="lazy"
             className="d-inline-block align-top"
           />
           <span style={{ color: "#5B3A29", fontWeight: "bold", fontSize: "32px" }}>
@@ -49,6 +51,8 @@ function NavigationBar() {
             ))}
 
             <Button
+              as={ButtonLink}
+              to="/contact"
               variant="success"
               className="ms-3"
               style={{
@@ -58,9 +62,7 @@ function NavigationBar() {
                 fontWeight: "600",
               }}
             >
-              <Link to="/contact" style={{ color: "#fff", textDecoration: "none" }}>
-                Get a Quote
-              </Link>
+              Get a Quote
             </Button>
           </Nav>
         </Navbar.Collapse>
