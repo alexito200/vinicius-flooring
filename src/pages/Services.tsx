@@ -74,7 +74,7 @@ function Services() {
           </Col>
         </Row>
 
-        <Row as="section" className="mb-5">
+        {/* <Row as="section" className="mb-5">
           <Col>
             <h2 className="text-center">Project Gallery</h2>
             <p className="text-center text-muted">
@@ -97,7 +97,7 @@ function Services() {
               ))}
             </Row>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
 
       <Modal show={showModal} onHide={() => setShowModal(false)} centered size="lg" aria-labelledby="gallery-modal-title">
