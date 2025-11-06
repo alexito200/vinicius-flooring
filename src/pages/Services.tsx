@@ -9,19 +9,19 @@ import ButtonLink from '../components/ButtonLink';
 
 const galleryImages = [
   {
-    src: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80&fm=webp',
+    src: 'hardwood-kitchen.png',
     alt: 'Wide plank hardwood flooring installed in an Edison, NJ living room',
     width: 1200,
     height: 800,
   },
   {
-    src: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80&fm=webp',
+    src: 'tile-bathroom.png',
     alt: 'Porcelain tile bathroom renovation in New Brunswick, NJ',
     width: 1200,
     height: 800,
   },
   {
-    src: 'https://images.unsplash.com/photo-1616628182500-5df580f9a60f?auto=format&fit=crop&w=1200&q=80&fm=webp',
+    src: 'epoxy-garage.png',
     alt: 'Epoxy garage floor coating with custom flakes in Piscataway, NJ',
     width: 1200,
     height: 800,

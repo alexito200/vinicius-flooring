@@ -5,7 +5,7 @@ import ButtonLink from './ButtonLink';
 const serviceCards = [
   {
     title: 'Hardwood Installation & Refinishing',
-    image: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80&fm=webp',
+    image: 'hardwood-kitchen.png',
     alt: 'Custom hardwood flooring installation with walnut planks in Edison, NJ',
     width: 900,
     height: 600,
@@ -18,7 +18,7 @@ const serviceCards = [
   },
   {
     title: 'Tile Flooring',
-    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80&fm=webp',
+    image: 'tile-bathroom.png',
     alt: 'Porcelain tile flooring in a renovated East Brunswick, NJ kitchen',
     width: 900,
     height: 600,
@@ -31,7 +31,7 @@ const serviceCards = [
   },
   {
     title: 'Epoxy Coating',
-    image: 'https://images.unsplash.com/photo-1616628182500-5df580f9a60f?auto=format&fit=crop&w=900&q=80&fm=webp',
+    image: 'epoxy-garage.png',
     alt: 'Epoxy garage floor coating with decorative flakes in Piscataway, NJ',
     width: 900,
     height: 600,
