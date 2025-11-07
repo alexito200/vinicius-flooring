@@ -7,4 +7,4 @@ const ButtonLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => (
 
 ButtonLink.displayName = 'ButtonLink';
 
-export default ButtonLink as unknown as any;
+export default ButtonLink;

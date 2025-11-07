@@ -1,4 +1,4 @@
-import { Children, isValidElement, ReactElement, ReactNode, useEffect } from 'react';
+import { Children, isValidElement, ReactNode, useEffect } from 'react';
 
 type HelmetProviderProps = {
   children: ReactNode;
@@ -6,6 +6,12 @@ type HelmetProviderProps = {
 
 type HelmetProps = {
   children?: ReactNode;
+};
+
+type HelmetElementProps = {
+  children?: ReactNode;
+  dangerouslySetInnerHTML?: { __html?: string };
+  [key: string]: unknown;
 };
 
 const HELMET_ATTRIBUTE = 'data-helmet-managed';
@@ -32,19 +38,18 @@ export function Helmet({ children }: HelmetProps) {
     const previousTitle = document.title;
 
     Children.forEach(children, (child) => {
-      if (!isValidElement(child)) {
+      if (!isValidElement<HelmetElementProps>(child)) {
         return;
       }
 
-      const element = child as ReactElement<any, any>;
-      const elementType = typeof element.type === 'string' ? element.type : null;
+      const elementType = typeof child.type === 'string' ? child.type : null;
 
       if (!elementType) {
         return;
       }
 
       if (elementType === 'title') {
-        const text = toTextContent(element.props.children);
+        const text = toTextContent(child.props.children);
         if (text) {
           document.title = text;
         }
@@ -54,7 +59,7 @@ export function Helmet({ children }: HelmetProps) {
       const domNode = document.createElement(elementType);
       domNode.setAttribute(HELMET_ATTRIBUTE, 'true');
 
-      const props = element.props as Record<string, unknown>;
+      const { props } = child;
 
       Object.entries(props).forEach(([propKey, propValue]) => {
         if (propKey === 'children' || propKey === 'dangerouslySetInnerHTML') {
@@ -69,11 +74,11 @@ export function Helmet({ children }: HelmetProps) {
       });
 
       if (elementType === 'script') {
-        const innerHTML = (props.dangerouslySetInnerHTML as { __html?: string } | undefined)?.__html;
+        const innerHTML = props.dangerouslySetInnerHTML?.__html;
         if (innerHTML) {
           domNode.textContent = innerHTML;
         } else {
-          domNode.textContent = toTextContent(element.props.children);
+          domNode.textContent = toTextContent(child.props.children);
         }
       }
 
